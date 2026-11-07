@@ -1,5 +1,7 @@
 # Case Itaú: Controle de Estoque
 
+O programa possui a função de criar um estoque (objeto Estoque) e adicionar e remover produtos (obieto Produto), além de reservar e bloquear quantidades desse produtos, e liberar outras quantidades do bloqueio ou reserva.
+
 ## Organização de Versionamento:
 
 - Initial Commit: Structure
@@ -36,11 +38,11 @@ Classe -> Produto (guarda as informações dos produtos, métodos de mudança de
       - liberar_produtos(qtd, tipo) - check
         - Uso do tipo, para liberar reservas e bloqueios pela mesma função, porém separando as liberações. Poderia também implementar duas funções, uma para cada finalidade
       - get_id(self) - removido
-      - get_nome - check
-      - get_qtd_disp - check
-      - get_qtd_res - check
-      - get_qtd_bloq - check
-      - get_qtd_total - check
+      - get_nome - check -> removido posteriormente
+      - get_qtd_disp - check -> removido posteriormente
+      - get_qtd_res - check -> removido posteriormente
+      - get_qtd_bloq - check -> removido posteriormente
+      - get_qtd_total - check -> removido posteriormente
       - Auxiliares: eq, str e hash (sugestão do copilot, eu havia esquecido) - check
   - Limitações:
     - Estoque (todos tem limite de quantidade disponível):
@@ -61,12 +63,18 @@ Classe -> Produto (guarda as informações dos produtos, métodos de mudança de
 - Feat: Estoque
   - Impelementação da classe Estoque
 
-- Code Review com IA:
-  - Mudanças no código para corrigir problemas, melhorar eficiência
+- Code Review com IA 1 e 2:
+  - Mudanças no código para corrigir problemas, melhorar eficiência e facilitar testes (mais detalhes no Uso de IA)
+
+- Testes
 
 ## Uso de IA ao longo do desenvolvimento
 
+O uso de IA no desenvolvimento pode ser basicamente resumido em 3 funções principais: correções, consulta de sintaxe e autocomplete. A modelagem das classes foi feita de forma independente, e a escrita principal do código também (com auxílio do Github Copilot para maior agilidade). O ChatGPT foi principalmente usado para pedir segundas opiniões (Code Review) e consultar sintaxe. Gosto de usar IAs Generativas para tarefas menores e mais cansativas, e para pedir sugestões de melhorias, focando o trabalho principal de estrutura e modelagem do código eu mesma
+
 ChatGPT:
+Disponível em: <chat>[https://chatgpt.com/share/6aef8708-41b4-83e9-98dd-e42fa8255d92]
+
 Consulta de como é a sintaxe do uso de um set():
 
 - set(), .add e .discard()
@@ -89,9 +97,36 @@ Code Review com IA - 2
 - Melhoria da lógica de True e Falses, e returns para facilitar os testes
 - Proibir remoção de produtos com reservas e bloqueios
 
+Code Review Final
+
+- Mudança na forma que listar produtos funciona
+- Simplificação de consultar_produto
+
 Github Copilot (sem log, uso integrado no VSCode):
 Sugestão de auxiliares de funções (__eq__, __str__, __hash__)
 
-## Conclusões:
+## Conclusões
 
-Como executar o código:
+Programa feito em 3 horas e 30 minutos, distribuído em 2 dias (Sexta a noite e Sábado a tarde)
+
+Melhorias caso fosse usado em produção:
+
+- Melhorar a estrutura das delegações
+- validar se o Estoque só tem objetos de Produto
+- Validar o formato do nome do produto
+- Melhorar o encapsulamento das funções e acesso a atributos
+- Uso do pytest para testes (não conhecia, sugestão do ChatGPT)
+- Ter um método de garantir que a soma da quantidade total é sempre constante em operações de bloqueio, reserva e liberação
+- Implementação de Threads para evitar mudanças de estado simultâneas
+- Uso de Hash como chave principal para busca e demais operações
+
+Principais Dificuldades:
+
+- Não estou acostumada a fazer testagem tão a fundo de código
+- Falta de claridade de como a função De liberar bloqueio ou reserva deveria funcionar no enunciado
+
+## Como executar o código
+
+```cmd
+python case.py
+```

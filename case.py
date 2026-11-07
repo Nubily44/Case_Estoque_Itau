@@ -107,13 +107,15 @@ class Estoque:
 
         del self.produtos[nome_produto]
         return True
-            
+                
     def listar_produtos(self):
         if not self.produtos:
             return False
-        else:
-            for produto in self.produtos:
-                print(produto)
+
+        for produto in self.produtos.values():
+            print(produto)
+
+        return True
     
     # Delegações para a classe Produto
     def reservar_produtos(self, nome_produto, quantidade):
@@ -141,12 +143,7 @@ class Estoque:
         return produto.liberar_produtos(quantidade, tipo)
     
     def consultar_produto(self, nome_produto):
-        produto = self.get_produto(nome_produto)
-        
-        if produto is None:
-            return None
-
-        return produto
+        return self.get_produto(nome_produto)
 
 # Teste de funcionalidades
 
