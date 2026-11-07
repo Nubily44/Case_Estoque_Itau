@@ -61,6 +61,9 @@ Classe -> Produto (guarda as informações dos produtos, métodos de mudança de
 - Feat: Estoque
   - Impelementação da classe Estoque
 
+- Code Review com IA:
+  - Mudanças no código para corrigir problemas, melhorar eficiência
+
 ## Uso de IA ao longo do desenvolvimento
 
 ChatGPT:
@@ -70,6 +73,16 @@ Consulta de como é a sintaxe do uso de um set():
 
 Consulta sobre o conceito de delegações (Não lembrava o nome)
 
+Code Review com IA - 1
+
+- Correção de sintaxe em get_produto
+- Correção no __eq__ e __hash__
+- Edge case: quantidades negativas e parciais nas operações com produtos
+- Mudança de Set para Dict por eficiência no Estoque
+- validar estoque e quantidade
+- Mover prints para os tests automatizando, limpando as classes
+
+Code 
 
 Github Copilot (sem log, uso integrado no VSCode):
 Sugestão de auxiliares de funções (__eq__, __str__, __hash__)
