@@ -2,7 +2,13 @@
 
 O programa possui a função de criar um estoque (objeto Estoque) e adicionar e remover produtos (obieto Produto), além de reservar e bloquear quantidades desse produtos, e liberar outras quantidades do bloqueio ou reserva.
 
-## Organização de Versionamento:
+## Principais Decisões Técnicas
+
+- Função liberar única para liberar bloqueio e reservas
+- Duas Classes (Produto e Estoque, sem a necessidade de um classe para um único produto de quantidade 1)
+- Classes e Testes no mesmo arquivo
+
+## Organização de Versionamento
 
 - Initial Commit: Structure
   - Organização de ideias e estrutura da documentação
@@ -92,7 +98,7 @@ O programa possui a função de criar um estoque (objeto Estoque) e adicionar e 
 
 ## Uso de IA ao longo do desenvolvimento
 
-O uso de IA no desenvolvimento pode ser basicamente resumido em 3 funções principais: correções, consulta de sintaxe e autocomplete. A modelagem das classes foi feita de forma independente, e a escrita principal do código também (com auxílio do Github Copilot para maior agilidade). O ChatGPT foi principalmente usado para pedir segundas opiniões (Code Review) e consultar sintaxe. Gosto de usar IAs Generativas para tarefas menores e mais cansativas, e para pedir sugestões de melhorias, focando o trabalho principal de estrutura e modelagem do código eu mesma
+O uso de IA no desenvolvimento pode ser basicamente resumido em 3 funções principais: correções, consulta de sintaxe e autocomplete. A modelagem das classes foi feita de forma independente, e a escrita principal do código também (com auxílio do Github Copilot para maior agilidade). O ChatGPT foi principalmente usado para pedir segundas opiniões (Code Review) e consultar sintaxe. Gosto de usar IAs Generativas para tarefas menores e mais cansativas, e para pedir sugestões de melhorias, focando o trabalho principal de estrutura e modelagem do código eu mesma. Algumas sugestões não foram adotadas por complexidade e escopo.
 
 ChatGPT:
 Disponível em: <chat>[https://chatgpt.com/share/6aef8708-41b4-83e9-98dd-e42fa8255d92]
@@ -152,3 +158,13 @@ Principais Dificuldades:
 ```cmd
 python case.py
 ```
+
+## Visão de Engenharia de Software
+
+5 Aspectos que foram prioridade na construção do programa:
+
+- Organização de Código
+- Encapsulamento e Orientação a Objetos
+- Assertividade (reconhecer e tratar erros de uso)
+- Definição e Controle de Requisitos, orientando o desenvolvimento
+- Controle de Versionamento e Documentação de mudanças
