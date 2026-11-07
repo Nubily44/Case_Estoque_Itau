@@ -146,10 +146,6 @@ class Estoque:
         return self.get_produto(nome_produto)
 
 # Teste de funcionalidades
-
-# Teste de funcionalidades
-
-# Teste de funcionalidades
 if __name__ == "__main__":
 
     ############## Adicionar produtos ##############
