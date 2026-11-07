@@ -30,10 +30,11 @@ Classe -> Produto (guarda as informações dos produtos, métodos de mudança de
       - liberar_produtos(produto, qtd, tipo) - check
         - Uso do tipo, para liberar reservas e bloqueios pela mesma função, porém separando as liberações. Poderia também implementar duas funções, uma para cada finalidade
       - get_id(self) - removido
-      - get_qtd_disp - 
-      - get_qtd_res - 
-      - get_qtd_bloq - 
-      - get_qtd_total - 
+      - get_nome - check
+      - get_qtd_disp - check
+      - get_qtd_res - check
+      - get_qtd_bloq - check
+      - get_qtd_total - check
       - Auxiliares: eq, str e hash (sugestão do copilot, eu havia esquecido) - checkl
   - Limitações:
     - Estoque (todos tem limite de quantidade disponível):
@@ -47,6 +48,9 @@ Classe -> Produto (guarda as informações dos produtos, métodos de mudança de
 
 - Reorganização de Requisitos
   - reservar, bloquear e liberar produtos movido como métodos do próprio produto, pois lidam diretamente com variáveis internas do Produto. Organização do checklist
+
+- Detalhes de Produto
+  - Adicionei alguns gets para ajudar na implementação de Estoque
 
 ## Uso de IA ao longo do desenvolvimento
 
