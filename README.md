@@ -67,6 +67,29 @@ O programa possui a função de criar um estoque (objeto Estoque) e adicionar e 
 
 - Testes
 
+## Estrutura do Código
+- Função validar_quantidade: Responsável por validar as quantidades informadas, garantindo que sejam números inteiros positivos. Diferencia erros de tipo (TypeError) e de valor (ValueError).
+
+- Classe Produto: Representa um produto individual no estoque, armazenando seu nome e suas quantidades:
+  - qtd_total: quantidade total cadastrada.
+  - qtd_disp: quantidade disponível para operações.
+  - qtd_res: quantidade reservada.
+  - qtd_bloq: quantidade bloqueada.
+  - Implementa os métodos de reserva, bloqueio e liberação de produtos, além de uma representação textual personalizada com __str__.
+- Classe Estoque: Responsável pelo gerenciamento e armazenamento dos produtos, utilizando um dicionário (dict) para associar cada produto ao seu nome, permitindo buscas e remoções eficientes.
+  - Adiciona produtos, somando suas quantidades caso já estejam cadastrados.
+  - Remove produtos somente quando não possuem quantidades reservadas ou bloqueadas.
+  - Lista e consulta produtos cadastrados.
+  - Centraliza as operações de reserva, bloqueio e liberação, delegando suas execuções à classe Produto.
+  - Organização da estrutura: A implementação utiliza separação de responsabilidades entre as classes Estoque e Produto, concentrando o gerenciamento geral na primeira e as regras de movimentação de quantidades na segunda.
+- Testes
+  - Testes de adicionar Produtos
+  - Testes de remover Produtos
+  - Testes de reservar Produtos
+  - Testes de bloquear Produtos
+  - Testes de liberar Produtos
+  - Testes de consultar Produtos
+
 ## Uso de IA ao longo do desenvolvimento
 
 O uso de IA no desenvolvimento pode ser basicamente resumido em 3 funções principais: correções, consulta de sintaxe e autocomplete. A modelagem das classes foi feita de forma independente, e a escrita principal do código também (com auxílio do Github Copilot para maior agilidade). O ChatGPT foi principalmente usado para pedir segundas opiniões (Code Review) e consultar sintaxe. Gosto de usar IAs Generativas para tarefas menores e mais cansativas, e para pedir sugestões de melhorias, focando o trabalho principal de estrutura e modelagem do código eu mesma
