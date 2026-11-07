@@ -102,6 +102,7 @@ O programa possui a função de criar um estoque (objeto Estoque) e adicionar e 
 O uso de IA no desenvolvimento pode ser basicamente resumido em 3 funções principais: correções, consulta de sintaxe e autocomplete. A modelagem das classes foi feita de forma independente, e a escrita principal do código também (com auxílio do Github Copilot para maior agilidade). O ChatGPT foi principalmente usado para pedir segundas opiniões (Code Review) e consultar sintaxe. Gosto de usar IAs Generativas para tarefas menores e mais cansativas, e para pedir sugestões de melhorias, focando o trabalho principal de estrutura e modelagem do código eu mesma. Algumas sugestões não foram adotadas por complexidade e escopo.
 
 ChatGPT:
+
 Disponível em: [chat](https://chatgpt.com/share/6aef8708-41b4-83e9-98dd-e42fa8255d92)
 
 Consulta de como é a sintaxe do uso de um set():
