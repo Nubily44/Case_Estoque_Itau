@@ -82,7 +82,12 @@ Code Review com IA - 1
 - validar estoque e quantidade
 - Mover prints para os tests automatizando, limpando as classes
 
-Code 
+Code Review com IA - 2
+
+- validar quantidade melhorado
+- remoção do __eq__ e __hash__
+- Melhoria da lógica de True e Falses, e returns para facilitar os testes
+- Proibir remoção de produtos com reservas e bloqueios
 
 Github Copilot (sem log, uso integrado no VSCode):
 Sugestão de auxiliares de funções (__eq__, __str__, __hash__)

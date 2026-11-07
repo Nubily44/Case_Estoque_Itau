@@ -19,6 +19,7 @@ def validar_quantidade(quantidade):
 # CLasse Produto (representa um produto no estoque)
 class Produto:
     def __init__(self, nome, quantidade):
+        validar_quantidade(quantidade)
         self.nome = nome
         self.qtd_total = quantidade
         self.qtd_disp = quantidade  # Inicia o produto com a quantidade total disponível
@@ -27,41 +28,37 @@ class Produto:
         self.qtd_res = 0
         self.qtd_bloq = 0
     
-    # Auxiliares 
-    def __eq__(self, other):
-        if not isinstance(other, Produto):
-            return NotImplemented
-        return self.nome == other.nome
-
-    def __hash__(self):
-        return hash(self.nome)  # Permite que o produto seja usado em conjuntos e dicionários
-    
+    # Auxiliares
     def __str__(self): # Representação do produto como string
         return f"Nome: {self.nome}, Total: {self.qtd_total}, Disponível: {self.qtd_disp}, Reservado: {self.qtd_res}, Bloqueado: {self.qtd_bloq}"
 
 
     # Requisitos
     def reservar_produtos(self, quantidade):
-        if not validar_quantidade(quantidade):
-            return False
+        validar_quantidade(quantidade)
     
-        if quantidade <= self.qtd_disp:
-            self.qtd_disp -= quantidade
-            self.qtd_res += quantidade
-        else:
-            return False  # Não há quantidade suficiente disponível para reservar
+        if quantidade > self.qtd_disp:
+            return False
+        
+        self.qtd_disp -= quantidade
+        self.qtd_res += quantidade
+        
+        return True
             
     def bloquear_produtos(self, quantidade):
-        if not validar_quantidade(quantidade):
-            return
+        validar_quantidade(quantidade)
         
-        if quantidade <= self.qtd_disp:
-            self.qtd_disp -= quantidade
-            self.qtd_bloq += quantidade
+        if quantidade > self.qtd_disp:
+            return False
+        
+        self.qtd_disp -= quantidade
+        self.qtd_bloq += quantidade
+        
+        return True
         
     def liberar_produtos(self, quantidade, tipo):
-        if not validar_quantidade(quantidade):
-            return False
+        validar_quantidade(quantidade)
+
         atributos = {
             "reserva": "qtd_res",
             "bloqueio": "qtd_bloq"
@@ -100,7 +97,16 @@ class Estoque:
             existente.qtd_disp += produto.qtd_total
 
     def remover_produto(self, nome_produto):
-        self.produtos.pop(nome_produto, None)
+        produto = self.get_produto(nome_produto)
+
+        if produto is None:
+            return False
+
+        if produto.qtd_res > 0 or produto.qtd_bloq > 0:
+            return False
+
+        del self.produtos[nome_produto]
+        return True
             
     def listar_produtos(self):
         if not self.produtos:
@@ -112,24 +118,27 @@ class Estoque:
     # Delegações para a classe Produto
     def reservar_produtos(self, nome_produto, quantidade):
         produto = self.get_produto(nome_produto)
-        if produto:
-            produto.reservar_produtos(quantidade)
-        else:
-            return False  # Produto não encontrado no estoque
+
+        if produto is None:
+            return False
+
+        return produto.reservar_produtos(quantidade)
 
     def bloquear_produtos(self, nome_produto, quantidade):
         produto = self.get_produto(nome_produto)
-        if produto:
-            produto.bloquear_produtos(quantidade)
-        else:
-            return False  # Produto não encontrado no estoque
+        
+        if produto is None:
+            return False
+        
+        return produto.bloquear_produtos(quantidade)
     
     def liberar_produtos(self, nome_produto, quantidade, tipo):
         produto = self.get_produto(nome_produto)
-        if produto:
-            produto.liberar_produtos(quantidade, tipo)
-        else:
-            return False  # Produto não encontrado no estoque
+        
+        if produto is None:
+            return False
+        
+        return produto.liberar_produtos(quantidade, tipo)
     
     
 
