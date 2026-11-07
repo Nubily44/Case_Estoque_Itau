@@ -6,9 +6,8 @@ O programa possui a função de criar um estoque (objeto Estoque) e adicionar e 
 
 - Initial Commit: Structure
   - Organização de ideias e estrutura da documentação
-
-Classe -> Estoque (guarda todos os produtos, métodos de interação com produtos)
-Classe -> Produto (guarda as informações dos produtos, métodos de mudança de estado)
+    - Classe -> Estoque (guarda todos os produtos, métodos de interação com produtos)
+    - Classe -> Produto (guarda as informações dos produtos, métodos de mudança de estado)
 
 - Planejamento de Requisitos
   - Estoque:
