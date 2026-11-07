@@ -33,6 +33,21 @@ class Produto:
     def __str__(self): # Representação do produto como string
         return f"ID: {self.id}, Nome: {self.nome}, Total: {self.qtd_total}, Disponível: {self.qtd_disp}, Reservado: {self.qtd_res}, Bloqueado: {self.qtd_bloq}"
 
+    def get_nome(self):
+        return self.nome
+    
+    def get_qtd_total(self):
+        return self.qtd_total
+    
+    def get_qtd_disp(self):
+        return self.qtd_disp
+    
+    def get_qtd_res(self):
+        return self.qtd_res
+    
+    def get_qtd_bloq(self):
+        return self.qtd_bloq
+
     # Requisitos
     def reservar_produtos(self, quantidade):
         if quantidade <= self.qtd_disp:
@@ -67,5 +82,4 @@ class Produto:
                 print(f"Não há quantidade suficiente bloqueada para liberar {quantidade} unidades do produto '{self.nome}'.\n Bloqueado: {self.qtd_bloq}, Solicitado: {quantidade}")
         else:
             print("Tipo inválido. Use 'reserva' ou 'bloqueio'.")
-        
 
