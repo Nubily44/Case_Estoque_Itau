@@ -11,11 +11,17 @@ Classe -> Produto (guarda as informações dos produtos, métodos de mudança de
 - Planejamento de Requisitos
   - Estoque:
     - Informações:
-      - Set de Produtos -
+      - Set de Produtos - check
     - Métodos:
-      - adicionar_produtos(produto, qtd) -
-      - retirar_produtos(produto, qtd) -
-      - Auxiliar: get_produto(id_produto) -
+      - adicionar_produtos(produto, qtd) - check
+      - retirar_produtos(produto, qtd) - check
+      - Auxiliares:
+        - get_produto(nome_produto) - check
+        - listar_produtos - check
+      - Delegações:
+        - reservar_produtos - check
+        - bloquear_produtos - check
+        - liberar_produtos - check
   - Produto:
     - Informações:
       - id - removida (identificador por nome em um conjunto pequeno é mais intuitivo)
@@ -25,9 +31,9 @@ Classe -> Produto (guarda as informações dos produtos, métodos de mudança de
       - qtd_res - check
       - qtd_bloq - check
     - Métodos:
-      - reservar_produtos(produto, qtd) - check
-      - bloquear_produtos(produto, qtd) - check
-      - liberar_produtos(produto, qtd, tipo) - check
+      - reservar_produtos(qtd) - check
+      - bloquear_produtos(qtd) - check
+      - liberar_produtos(qtd, tipo) - check
         - Uso do tipo, para liberar reservas e bloqueios pela mesma função, porém separando as liberações. Poderia também implementar duas funções, uma para cada finalidade
       - get_id(self) - removido
       - get_nome - check
@@ -35,7 +41,7 @@ Classe -> Produto (guarda as informações dos produtos, métodos de mudança de
       - get_qtd_res - check
       - get_qtd_bloq - check
       - get_qtd_total - check
-      - Auxiliares: eq, str e hash (sugestão do copilot, eu havia esquecido) - checkl
+      - Auxiliares: eq, str e hash (sugestão do copilot, eu havia esquecido) - check
   - Limitações:
     - Estoque (todos tem limite de quantidade disponível):
       - retirar_produtos(p, n) - check
@@ -52,12 +58,18 @@ Classe -> Produto (guarda as informações dos produtos, métodos de mudança de
 - Detalhes de Produto
   - Adicionei alguns gets para ajudar na implementação de Estoque
 
+- Feat: Estoque
+  - Impelementação da classe Estoque
+
 ## Uso de IA ao longo do desenvolvimento
 
 ChatGPT:
 Consulta de como é a sintaxe do uso de um set():
 
-- declaração: set(), .add e .discard()
+- set(), .add e .discard()
+
+Consulta sobre o conceito de delegações (Não lembrava o nome)
+
 
 Github Copilot (sem log, uso integrado no VSCode):
 Sugestão de auxiliares de funções (__eq__, __str__, __hash__)

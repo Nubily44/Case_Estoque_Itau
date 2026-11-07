@@ -83,3 +83,63 @@ class Produto:
         else:
             print("Tipo inválido. Use 'reserva' ou 'bloqueio'.")
 
+# Classe Estoque (guarda todos os produtos)
+class Estoque:
+    def __init__(self):
+        self.produtos = set()  # Usando um conjunto para evitar duplicatas
+    
+    # Auxiliares
+    def get_produto(self, nome_produto):
+        return next((produto for produto in self.produtos if produto.name == nome_produto), None)
+    
+    # Requisitos
+    def adicionar_produto(self, produto):
+        if produto not in self.produtos:
+            self.produtos.add(produto)
+            print(f"Produto '{produto.nome}' adicionado ao estoque.")
+        else:
+            produto_found = self.get_produto(produto.id)
+            produto_found.qtd_total += produto.qtd_total
+            produto_found.qtd_disp += produto.qtd_total
+            print(f"Produto '{produto.nome}' já existe. Quantidade total atualizada para {produto_found.qtd_total}.")
+            
+    def remover_produto(self, id_produto):
+        produto = self.get_produto(id_produto)
+        if produto:
+            self.produtos.remove(produto)
+            print(f"Produto '{produto.nome}' removido do estoque.")
+        else:
+            print(f"Produto com ID {id_produto} não encontrado no estoque.")
+            
+    def listar_produtos(self):
+        if not self.produtos:
+            print("Estoque vazio.")
+        else:
+            print("Produtos no estoque:")
+            for produto in self.produtos:
+                print(produto)
+    
+    # Delegações para a classe Produto
+    def reservar_produtos(self, nome_produto, quantidade):
+        produto = self.get_produto(nome_produto)
+        if produto:
+            produto.reservar_produtos(quantidade)
+        else:
+            print(f"Produto '{nome_produto}' não encontrado no estoque.")
+
+    def bloquear_produtos(self, nome_produto, quantidade):
+        produto = self.get_produto(nome_produto)
+        if produto:
+            produto.bloquear_produtos(quantidade)
+        else:
+            print(f"Produto '{nome_produto}' não encontrado no estoque.")
+    
+    def liberar_produtos(self, nome_produto, quantidade, tipo):
+        produto = self.get_produto(nome_produto)
+        if produto:
+            produto.liberar_produtos(quantidade, tipo)
+        else:
+            print(f"Produto '{nome_produto}' não encontrado no estoque.")
+    
+    
+
