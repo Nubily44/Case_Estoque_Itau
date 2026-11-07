@@ -39,6 +39,14 @@ Classe -> Produto (guarda as informações dos produtos, métodos de mudança de
 
 ## Uso de IA ao longo do desenvolvimento
 
+ChatGPT:
+Consulta de como é a sintaxe do uso de um set():
+
+- declaração: set(), .add e .discard()
+
+Github Copilot (sem log, uso integrado no VSCode):
+Sugestão de auxiliares de funções (__eq__, __str__, __hash__)
+
 ## Conclusões:
 
 Como executar o código:
